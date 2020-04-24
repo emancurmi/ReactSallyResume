@@ -1,0 +1,139 @@
+﻿    <!DOCTYPE html>
+    <html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width">
+        <title>Sally Resume</title>
+        <link href="style.css" rel="stylesheet" type="text/css" />
+    </head>
+    <body>
+        <div id="application-root">
+
+        </div>
+
+        <script src="https://unpkg.com/react@16/umd/react.development.js"></script>
+        <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+        <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+        <script type="text/babel">
+
+            const STORE = {
+
+            userinfo : {
+            name: 'Sally Student',
+            jobtitle: 'Thinkful Student',
+
+            profileimg: 'https://m.media-amazon.com/images/M/MV5BMTY5NzE3NzU3MF5BMl5BanBnXkFtZTgwMjg0NTQ5MDE@.V1.jpg',
+            address: '20 W 34th St, New York, NY 10001',
+            email: 'info@sallystudent.com',
+            phone: 'Tel:(999)999-9999'
+            },
+
+            education : {
+            schoolname: 'Thinkful',
+            coursename: 'Software Engineering Flex Program',
+            startdate: '1/9/2020',
+            enddate: 'present'
+            },
+            skills : ['HTML', 'CSS', 'Javascript'],
+            workexperience : [
+            {
+            company: 'IBM',
+            position: 'Web Developer',
+            startdate: '2010',
+            enddate: '2012',
+            description: 'lorem ipsum is simply dummy text of the printing and typesetting industry.'
+            },
+            {
+            company: 'Apple',
+            position: 'Fron End Developer',
+            startdate: '2012',
+            enddate: 'pressent',
+            description: 'lorem ipsum is simply dummy text of the printing and typesetting industry.'
+            }
+            ]
+            };
+
+
+            // App Component
+            function App(props) {
+            return (
+            <header>
+                {props.children}
+            </header>
+            );
+            }
+
+            ReactDOM.render(
+            <App className='my-class'>
+                <header>
+                    <h1>{STORE.userinfo.name}</h1>
+                    <h2>{STORE.userinfo.jobtitle}</h2>
+                </header>
+                <main>
+                    <section>
+                        <h3>About Me:</h3>
+                        <img src={STORE.userinfo.profileimg} alt="Profile Picture" id="Profile" width="100px" />
+                        <p>lorem ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. <u>It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.</u> It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of <strong>Lorem Ipsum</strong>.</p>
+                    </section>
+                    <hr />
+                    <section>
+                        <h3>Education</h3>
+
+                        <h4>{STORE.education.schoolname}</h4>
+                        <p>{STORE.education.coursename}</p>
+                        <p>{STORE.education.startdate} - {STORE.education.enddate}</p>
+                    </section>
+                    <section>
+                        <h3>Skills:</h3>
+                        <ul>
+                            <li>{STORE.skills[0]}</li>
+                            <li>{STORE.skills[1]}</li>
+                            <li>{STORE.skills[2]}</li>
+                        </ul>
+                    </section>
+
+                    <section>
+                        <h3>Employment History</h3>
+                        <table>
+                            <tr>
+                                <td><strong>{STORE.workexperience[0].company}</strong></td>
+                                <td>{STORE.workexperience[0].position}</td>
+                                <td>
+                                    ({STORE.workexperience[0].startdate} - {
+                                    STORE.workexperience[0].enddate})
+                                </td>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <td colSpan="2">{STORE.workexperience[0].description}</td>
+                            </tr>
+                            <tr>
+                                <td><strong>{STORE.workexperience[1].company}</strong></td>
+                                <td>{STORE.workexperience[1].position}</td>
+                                <td>
+                                    ({STORE.workexperience[1].startdate} - {
+                                    STORE.workexperience[1].enddate})
+                                </td>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <td colSpan="2">{STORE.workexperience[1].description}</td>
+                            </tr>
+                        </table>
+                    </section>
+                    <section>
+                        <h3>Contact</h3>
+                        <address>
+                            Address: {STORE.userinfo.address}
+                        </address>
+                        <p>{STORE.userinfo.email}</p>
+                        <p>{STORE.userinfo.phone}</p>
+                        
+                    </section>
+                </main>
+            </App>,
+            document.querySelector('#application-root')
+            );
+        </script>
+    </body>
+    </html>

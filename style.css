@@ -1,0 +1,15 @@
+body{
+  max-width: 740px;
+  margin: auto;
+  padding: 20px;
+}
+
+h3{
+  text-decoration: underline
+}
+
+#Profile{
+  float:left;
+  max-width: 100px;
+  margin-right:20px;
+}
